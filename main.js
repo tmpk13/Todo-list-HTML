@@ -11,11 +11,19 @@ let listContainer = document.getElementById("list-container");
 items.forEach((listElementText) => {
     // Create new element
     let newListElement = document.createElement("div");
-    // Create button
+    // Create checkbox
     let checkButton = document.createElement("input");
     checkButton.type = "checkbox";
+    checkButton.style.display = "none";
+
     newListElement.append(checkButton);
     
+
+    let completeButton = document.createElement("img");
+    checkButton.src = "./check.svg";
+
+    newListElement.append(completeButton);
+
 
     // Add title
     let title = document.createElement("p");
@@ -45,7 +53,7 @@ items.forEach((listElementText) => {
 	newListElement.classList.toggle("complete");
 	
     });
-
+    
 
     // Store element
     listItems.push(newListElement);
@@ -56,8 +64,9 @@ items.forEach((listElementText) => {
 
 /* --- SELECTION --- */
 
+
 // Have invis divs between that expand when mouse down/hover
-//document.body.addEventListener("mousedown", (event) => {
+// document.body.addEventListener("mousedown", (event) => {
     
 //});
 // document.body.addEventListener("click", (event) => {
