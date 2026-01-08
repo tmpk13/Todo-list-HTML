@@ -6,6 +6,12 @@
 
 }
 
+.tip {
+    margin: auto;
+    text-align: center;
+    color: #777;
+}
+
 .item-input-container {
     width: 90vmin;
     height: 10vmin;
@@ -55,11 +61,16 @@
     display: flex;
     margin: 1vmin;
 
+    font-size: 5vmin;
     border-color: #555;
     border-style: solid;
     border-width: 3px;
     padding: 1vmin 3vmin;
 }
+.list-item :hover {
+    
+}
+
 .list-item input {
     width: 10vmin;
     margin-right: 10vmin;
