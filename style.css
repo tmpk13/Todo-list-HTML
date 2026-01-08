@@ -5,8 +5,8 @@
     width: 70%;
 
 }
-.list-item.selected {
-    
+.list-item.completed {
+    background-color: #BCEBAB;
 
 }
 .list-item.selected {
