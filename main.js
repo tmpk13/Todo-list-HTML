@@ -23,6 +23,25 @@ items.forEach((listElementText) => {
     let completeButton = document.createElement("img");
     completeButton.src = "./check.svg";
     completeButton.style.width = "3vmin";
+    completeButton.addEventListener("click", (event) => {
+	newListElement.classList.toggle("complete");
+	newListElement.classList.remove("in-progress");
+    });
+    // Add in-progress button
+    let inProgressButton = document.createElement("img");
+    inProgressButton.src = "./check.svg";
+    inProgressButton.style.width = "3vmin";
+    inProgressButton.addEventListener("click", (event) => {
+	newListElement.classList.toggle("in-progress");
+	newListElement.classList.remove("complete");
+    });
+
+    
+    
+    let statusButtonGroup = document.createElement("div");
+    statusButtonGroup.classList.add("statusButtonGroup");
+    statusButtonGroup.append(completeButton);
+    statusButtonGroup.append(inProgressButton);
 
 
 
@@ -35,7 +54,7 @@ items.forEach((listElementText) => {
     // Add children
     newListElement.append(checkButton);
     newListElement.append(title);
-    newListElement.append(completeButton);
+    newListElement.append(statusButtonGroup);
     
 
     // Add class
