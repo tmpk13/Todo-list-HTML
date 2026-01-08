@@ -7,7 +7,12 @@
 }
 
 .statusButtonGroup {
+    display: flex;
     padding: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 10vmin;
+    cursor: pointer;
 }
 
 .list-item.in-progress {
