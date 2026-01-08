@@ -10,7 +10,14 @@ let inProgressListContainer = document.getElementById("inprogress-list-container
 let completeListContainer = document.getElementById("complete-list-container");
 
 
-let moveItem = function(item, destination) {}
+let moveItem = function(item) {
+    if (item.classList.contains("complete"))
+	completeListContainer.appendChild(item);
+    else if (item.classList.contains("in-progress"))
+	inProgressListContainer.appendChild(item);
+    else 
+	listContainer.appendChild(item);
+}
 
 
 let createItem = function(listElementText) {
@@ -32,9 +39,7 @@ let createItem = function(listElementText) {
 	newListElement.classList.toggle("complete");
 	newListElement.classList.remove("in-progress");
 
-	if (newListElement.classList.contains("complete"))
-	    completeListContainer.appendChild(newListElement);
-    	else listContainer.appendChild(newListElement);
+	moveItem(newListElement);
 
     });
     // Add in-progress button
@@ -45,9 +50,7 @@ let createItem = function(listElementText) {
 	newListElement.classList.toggle("in-progress");
 	newListElement.classList.remove("complete");
 
-	if (newListElement.classList.contains("in-progress"))
-	    inProgressListContainer.appendChild(newListElement);
-	else listContainer.appendChild(newListElement);
+	moveItem(newListElement);
     });
 
     
@@ -90,7 +93,7 @@ let createItem = function(listElementText) {
     // Add double click events
     newListElement.addEventListener("dblclick", function (e) {
 	newListElement.classList.toggle("complete");
-	
+	moveItem(newListElement);
     });
     
 
@@ -136,6 +139,14 @@ itemInputContainer.classList.add("item-input-container");
 
 let inputListItem = document.createElement("input");
 inputListItem.type = "text";
+
+inputListItem.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+	e.preventDefault();
+	createItem(inputListItem.value);
+    }
+});
+
 
 let inputListItemSubmit = document.createElement("button");
 inputListItemSubmit.textContent = "Submit";
