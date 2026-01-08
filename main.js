@@ -6,7 +6,8 @@ let items = [
 let listItems = [];
 
 let listContainer = document.getElementById("list-container");
-
+let inProgressListContainer = document.getElementById("inprogress-list-container");
+let completeListContainer = document.getElementById("complete-list-container");
 
 items.forEach((listElementText) => {
     // Create new element for list item
@@ -26,14 +27,22 @@ items.forEach((listElementText) => {
     completeButton.addEventListener("click", (event) => {
 	newListElement.classList.toggle("complete");
 	newListElement.classList.remove("in-progress");
+	if (newListElement.classList.contains("in-progress"))
+	    completeListContainer.appendChild(newListElement);
+	else listContainer.appendChild(newListElement);
+
     });
     // Add in-progress button
-    let inProgressButton = document.createElement("img");
-    inProgressButton.src = "./check.svg";
+    let inProgressButton = document.createElement("div");
+    inProgressButton.textContent = ">";
     inProgressButton.style.width = "3vmin";
     inProgressButton.addEventListener("click", (event) => {
 	newListElement.classList.toggle("in-progress");
 	newListElement.classList.remove("complete");
+
+	if (newListElement.classList.contains("in-progress"))
+	    inProgressListContainer.appendChild(newListElement);
+	else listContainer.appendChild(newListElement);
     });
 
     
