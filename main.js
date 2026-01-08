@@ -1,0 +1,58 @@
+let items = [
+    "Item1",
+    "Item2"
+];
+
+let listItems = [];
+
+let listContainer = document.getElementById("list-container");
+
+items.forEach((listElementText) => {
+    // Create new element
+    let newListElement = document.createElement("div");
+    // Create button
+    let checkButton = document.createElement("input");
+    checkButton.type = "checkbox";
+    newListElement.append(checkButton);
+    
+    // Add title
+    let title = document.createElement("p");
+    // Add text content from list
+    title.textContent = listElementText;
+    newListElement.append(title);
+    
+    // Add class
+    newListElement.classList.add("list-item");
+    
+    // Append this element to the list container
+    listContainer.append(newListElement);
+    
+    // Add click events
+    newListElement.addEventListener("click", function (e) {
+	if (this.classList.contains("selectable")) {
+	    newListElement.classList.toggle("selected");
+	}
+    });
+    // Add double click events
+    newListElement.addEventListener("dblclick", function (e) {
+	newListElement.classList.toggle("complete");
+	
+    });
+
+
+    // Store element
+    listItems.push(newListElement);
+});
+
+
+
+let selectableButton = document.createElement("input");
+selectableButton.textContent = "Select";
+selectableButton.type = "checkbox";
+selectableButton.addEventListener("click", function (e) {
+    listItems.forEach((el) => {
+	el.classList.toggle("selectable");
+    });
+});
+
+document.body.append(selectableButton);
