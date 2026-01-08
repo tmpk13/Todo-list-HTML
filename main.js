@@ -9,34 +9,39 @@ let listContainer = document.getElementById("list-container");
 
 
 items.forEach((listElementText) => {
-    // Create new element
+    // Create new element for list item
     let newListElement = document.createElement("div");
+
+
     // Create checkbox
     let checkButton = document.createElement("input");
     checkButton.type = "checkbox";
     checkButton.style.display = "none";
 
-    newListElement.append(checkButton);
-    
 
+    // Add completion button
     let completeButton = document.createElement("img");
     completeButton.src = "./check.svg";
-
-    newListElement.append(completeButton);
+    completeButton.style.width = "3vmin";
 
 
     // Add title
     let title = document.createElement("p");
     // Add text content from list
     title.textContent = listElementText;
+
+
+    // Add children
+    newListElement.append(checkButton);
     newListElement.append(title);
+    newListElement.append(completeButton);
     
 
     // Add class
     newListElement.classList.add("list-item");
     
 
-    // Append this element to the list container
+    // Append this list item element to the list container
     listContainer.append(newListElement);
     
 
