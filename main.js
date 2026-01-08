@@ -20,7 +20,7 @@ items.forEach((listElementText) => {
     
 
     let completeButton = document.createElement("img");
-    checkButton.src = "./check.svg";
+    completeButton.src = "./check.svg";
 
     newListElement.append(completeButton);
 
