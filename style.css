@@ -2,10 +2,10 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 70%;
+    width: 70vw;
 
 }
-.list-item.completed {
+.list-item.complete {
     background-color: #BCEBAB;
 
 }
