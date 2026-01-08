@@ -9,7 +9,7 @@ let listContainer = document.getElementById("list-container");
 let inProgressListContainer = document.getElementById("inprogress-list-container");
 let completeListContainer = document.getElementById("complete-list-container");
 
-items.forEach((listElementText) => {
+let createItem = function(listElementText) {
     // Create new element for list item
     let newListElement = document.createElement("div");
 
@@ -91,6 +91,10 @@ items.forEach((listElementText) => {
 
     // Store element
     listItems.push(newListElement);
+}
+
+items.forEach((listElementText) => {
+    createItem(listElementText);
 });
 
 
@@ -109,13 +113,34 @@ items.forEach((listElementText) => {
 
 // This needs to be updated to be an event where if any are selected 
 // 	the others are selectable
-let selectableButton = document.createElement("input");
-selectableButton.textContent = "Select";
-selectableButton.type = "checkbox";
-selectableButton.addEventListener("click", function (e) {
-    listItems.forEach((el) => {
-	el.classList.toggle("selectable");
-    });
+// let selectableButton = document.createElement("input");
+// selectableButton.textContent = "Select";
+// selectableButton.type = "checkbox";
+// selectableButton.addEventListener("click", function (e) {
+//     listItems.forEach((el) => {
+// 	el.classList.toggle("selectable");
+//     });
+// });
+//
+// document.body.append(selectableButton);
+
+
+
+let itemInputContainer = document.createElement("div");
+itemInputContainer.classList.add("item-input-container");
+
+let inputListItem = document.createElement("input");
+inputListItem.type = "text";
+
+let inputListItemSubmit = document.createElement("button");
+inputListItemSubmit.textContent = "Submit";
+inputListItemSubmit.addEventListener("click", function (e) {
+    createItem(inputListItem.value);
 });
 
-document.body.append(selectableButton);
+
+
+
+itemInputContainer.append(inputListItem);
+itemInputContainer.append(inputListItemSubmit);
+document.body.prepend(itemInputContainer);
