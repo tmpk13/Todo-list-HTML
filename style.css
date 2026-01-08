@@ -7,7 +7,23 @@
 }
 
 .item-input-container {
+    width: 90vmin;
+    height: 10vmin;
+    display: flex;
+    justify-content: center;
 
+    margin: auto; 
+}
+.item-input-container input {
+    width: 80vmin;
+    border: solid;
+    font-size: 3vmin;
+    
+}
+.item-input-container button {
+    width: 10vmin;
+    
+    border: solid;
 }
 
 .statusButtonGroup {

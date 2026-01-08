@@ -9,6 +9,10 @@ let listContainer = document.getElementById("list-container");
 let inProgressListContainer = document.getElementById("inprogress-list-container");
 let completeListContainer = document.getElementById("complete-list-container");
 
+
+let moveItem = function(item, destination) {}
+
+
 let createItem = function(listElementText) {
     // Create new element for list item
     let newListElement = document.createElement("div");
@@ -27,9 +31,10 @@ let createItem = function(listElementText) {
     completeButton.addEventListener("click", (event) => {
 	newListElement.classList.toggle("complete");
 	newListElement.classList.remove("in-progress");
-	if (newListElement.classList.contains("in-progress"))
+
+	if (newListElement.classList.contains("complete"))
 	    completeListContainer.appendChild(newListElement);
-	else listContainer.appendChild(newListElement);
+    	else listContainer.appendChild(newListElement);
 
     });
     // Add in-progress button
@@ -71,7 +76,7 @@ let createItem = function(listElementText) {
     
 
     // Append this list item element to the list container
-    listContainer.append(newListElement);
+    listContainer.prepend(newListElement);
     
 
     // Add click events
