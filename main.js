@@ -25,6 +25,7 @@ items.forEach((listElementText) => {
     completeButton.style.width = "3vmin";
 
 
+
     // Add title
     let title = document.createElement("p");
     // Add text content from list

@@ -15,8 +15,10 @@
     border-width: 3px;
 }
 .list-item {
+    justify-content: space-between;
     display: flex;
     margin: 1vmin;
+
 
     border-color: #555;
     border-style: solid;
