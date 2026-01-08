@@ -45,7 +45,8 @@ items.forEach((listElementText) => {
 });
 
 
-
+// This needs to be updated to be an event where if any are selected 
+// 	the others are selectable
 let selectableButton = document.createElement("input");
 selectableButton.textContent = "Select";
 selectableButton.type = "checkbox";
